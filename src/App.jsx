@@ -132,7 +132,7 @@ function App() {
         >
           <h1>
             About
-            <img src="/src/assets/moon.png" className="heading-icon" alt="" aria-hidden="true" />
+            <img src="/src/assets/sparkles.png" className="heading-icon" alt="" aria-hidden="true" />
           </h1>
           <p>A little more about me.</p>
 
@@ -164,7 +164,7 @@ function App() {
               <li>Music</li>
               <li>
                 <span style={{ display: 'inline-flex', alignItems: 'center', gap: '8px' }}>
-                  Moon, cloud, sky
+                  Moon, clouds, sky
                   <button className="camera-btn" onClick={() => setIsSkyModalOpen(true)}>
                     <img src="/src/assets/camera.png" alt="camera" />
                   </button>
@@ -224,7 +224,7 @@ function App() {
         </section>
       </main>
 
-      {/* Sky Modal Overlay */}
+      {/* sky images modal overlay */}
       {isSkyModalOpen && (
         <div className="modal-overlay" onClick={() => setIsSkyModalOpen(false)}>
           <div className="modal-content" onClick={(e) => e.stopPropagation()}>
