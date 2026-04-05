@@ -1,6 +1,6 @@
 import { useState, useEffect, useRef } from 'react';
 import Sidebar from './components/Sidebar';
-import { ArrowDown, ChevronRight, X } from 'lucide-react';
+import { ArrowDown, ChevronRight, X, Mail, Linkedin, Github } from 'lucide-react';
 import doodleStars from './assets/doodle-stars.png';
 import shining from './assets/shining.png';
 import star2 from './assets/star (2).png';
@@ -264,11 +264,38 @@ function App() {
         <section
           id="contact"
           ref={(el) => (sectionRefs.current['contact'] = el)}
-          className="page-section"
+          className="page-section contact-section"
         >
-          <h1>Contact Section</h1>
-          <p>Get in touch with me.</p>
+          <h1>Contact</h1>
+          <p>Get in touch.</p>
+          <div className="contact-container">
+            <div className="contact-links">
+              <a href="mailto:faizaanjumm07@gmail.com" className="contact-link">
+                <Mail size={18} />
+                <span>faizaanjumm07@gmail.com</span>
+              </a>
+              <a href="https://www.linkedin.com/in/m-s-faiza-anjum-b7b251264" target="_blank" rel="noopener noreferrer" className="contact-link">
+                <Linkedin size={18} />
+                <span>LinkedIn</span>
+              </a>
+              <a href="https://github.com/faizaanjum7" target="_blank" rel="noopener noreferrer" className="contact-link">
+                <Github size={18} />
+                <span>GitHub</span>
+              </a>
+            </div>
+
+            <div className="contact-form">
+              <input type="text" placeholder="Name" className="contact-input" />
+              <input type="email" placeholder="Email" className="contact-input" />
+              <textarea placeholder="Message" className="contact-textarea" rows="4"></textarea>
+              <button className="btn-primary send-btn">Send Message</button>
+            </div>
+          </div>
         </section>
+
+        <footer className="footer">
+          <p>© 2026 Faiza Anjum M S, All rights reserved.</p>
+        </footer>
       </main>
 
       {/* project details modal */}
