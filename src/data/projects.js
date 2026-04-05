@@ -85,7 +85,7 @@ export const projectsData = [
     color: "#eedbee",
     imageLight: "/src/assets/tedxgprec.webp",
     imageDark: "/src/assets/tedxgprec.webp",
-    githubLink: "#",
+    githubLink: "",
     liveLink: "https://tedxgprec.in/",
     details: {
       description: "",
