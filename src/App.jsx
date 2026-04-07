@@ -1,6 +1,6 @@
 import { useState, useEffect, useRef } from 'react';
 import Sidebar from './components/Sidebar';
-import { ArrowDown, ChevronRight, X, Mail, Linkedin, Github } from 'lucide-react';
+import { ArrowDown, ChevronRight, X, Mail, Linkedin, Github, GraduationCap, Briefcase, Award } from 'lucide-react';
 import doodleStars from './assets/doodle-stars.png';
 import shining from './assets/shining.png';
 import star2 from './assets/star (2).png';
@@ -13,6 +13,7 @@ import faiza from './assets/me.jpg';
 import sparklesIcon from './assets/sparkles.png';
 import cameraIcon from './assets/camera.png';
 import folderIcon from './assets/folder (1).png';
+import learningBookIcon from './assets/learning-book.png';
 import sky2 from './assets/sky2.webp';
 import sky3 from './assets/sky3.webp';
 import sky4 from './assets/sky4.webp';
@@ -289,10 +290,69 @@ function App() {
         <section
           id="resume"
           ref={(el) => (sectionRefs.current['resume'] = el)}
-          className="page-section"
+          className="page-section resume-section"
         >
-          <h1>Resume Section</h1>
-          <p>Professional experience and education.</p>
+          <h1>
+            Resume
+            <img src={learningBookIcon} className="heading-icon" alt="" aria-hidden="true" />
+          </h1>
+          <p>Education, experience & certifications.</p>
+
+          <div className="resume-category">
+            <div className="resume-category-header">
+              <GraduationCap size={20} className="resume-icon" />
+              <h2>Education</h2>
+            </div>
+
+            <div className="resume-item">
+              <div className="resume-date">2022 - 2026</div>
+              <div className="resume-content">
+                <h3>BTech in Computer Science</h3>
+                <p>G. Pulla Reddy Engineering College(Autonomous)</p>
+                <p className="resume-score">84%</p>
+              </div>
+            </div>
+
+            <div className="resume-item">
+              <div className="resume-date">2020 - 2022</div>
+              <div className="resume-content">
+                <h3>Intermediate in MPC</h3>
+                <p>Narayana Junior College</p>
+                <p className="resume-score">96%</p>
+              </div>
+            </div>
+          </div>
+
+          <div className="resume-category">
+            <div className="resume-category-header">
+              <Briefcase size={20} className="resume-icon" />
+              <h2>Work Experience</h2>
+            </div>
+
+            <div className="resume-item">
+              <div className="resume-date">Jan 2026 - April 2026</div>
+              <div className="resume-content">
+                <h3>Full stack Intern</h3>
+                <p>Habib IT Solutions</p>
+              </div>
+            </div>
+          </div>
+
+          <div className="resume-category">
+            <div className="resume-category-header">
+              <Award size={20} className="resume-icon" />
+              <h2>Certifications</h2>
+            </div>
+
+            <div className="resume-item" style={{ display: 'block', padding: '0', marginLeft: '0', marginRight: '0' }}>
+              <ToggleBlock title="Smart Interview - Smart Coder">
+                <div className="certificate-content" style={{ display: 'flex', flexDirection: 'column', gap: '12px' }}>
+                  <p>Smart Coder Certification details.</p>
+                  <a href="https://smartinterviews.in/certificate/10b80e4d" target="_blank" rel="noopener noreferrer" className="btn-secondary" style={{ width: 'fit-content' }}>View Certificate</a>
+                </div>
+              </ToggleBlock>
+            </div>
+          </div>
         </section>
 
         <section
