@@ -10,6 +10,14 @@ import './App.css';
 
 import mailWithStar from './assets/mail-with-star.png';
 import faiza from './assets/me.jpg';
+import sparklesIcon from './assets/sparkles.png';
+import cameraIcon from './assets/camera.png';
+import folderIcon from './assets/folder (1).png';
+import sky2 from './assets/sky2.webp';
+import sky3 from './assets/sky3.webp';
+import sky4 from './assets/sky4.webp';
+import moon from './assets/moon.webp';
+import resumePdf from './assets/Faiza_Anjum.pdf';
 
 
 const ToggleBlock = ({ title, children, defaultOpen = false }) => {
@@ -139,7 +147,7 @@ function App() {
                   View Projects <ArrowDown size={14} />
                 </button>
                 <a
-                  href="/src/assets/Faiza_Anjum.pdf"
+                  href={resumePdf}
                   target="_blank"
                   rel="noopener noreferrer"
                   className="btn-secondary"
@@ -165,7 +173,7 @@ function App() {
         >
           <h1>
             About
-            <img src="/src/assets/sparkles.png" className="heading-icon" alt="" aria-hidden="true" />
+            <img src={sparklesIcon} className="heading-icon" alt="" aria-hidden="true" />
           </h1>
           <p>A little more about me.</p>
 
@@ -199,7 +207,7 @@ function App() {
                 <span style={{ display: 'inline-flex', alignItems: 'center', gap: '8px' }}>
                   Moon, clouds, sky
                   <button className="camera-btn" onClick={() => setIsSkyModalOpen(true)}>
-                    <img src="/src/assets/camera.png" alt="camera" />
+                    <img src={cameraIcon} alt="camera" />
                   </button>
                   <span className="click-hint">← click!</span>
                 </span>
@@ -218,7 +226,7 @@ function App() {
         >
           <h1>
             Projects
-            <img src="/src/assets/folder (1).png" className="heading-icon" alt="" aria-hidden="true" />
+            <img src={folderIcon} className="heading-icon" alt="" aria-hidden="true" />
           </h1>
           <p>Gallery view of my work.</p>
 
@@ -413,7 +421,7 @@ function App() {
           <div className="modal-content" onClick={(e) => e.stopPropagation()}>
             <div className="modal-header">
               <span className="modal-title">
-                <img src="/src/assets/camera.png" alt="camera" className="modal-icon" />
+                <img src={cameraIcon} alt="camera" className="modal-icon" />
                 Sky Captures
               </span>
               <button className="modal-close" onClick={() => setIsSkyModalOpen(false)}>
@@ -422,10 +430,10 @@ function App() {
             </div>
             <div className="modal-body">
               <div className="sky-grid">
-                <img src="/src/assets/sky2.webp" alt="Sky 2" />
-                <img src="/src/assets/sky3.webp" alt="Sky 3" />
-                <img src="/src/assets/sky4.webp" alt="Sky 4" />
-                <img src="/src/assets/moon.webp" alt="Moon" />
+                <img src={sky2} alt="Sky 2" />
+                <img src={sky3} alt="Sky 3" />
+                <img src={sky4} alt="Sky 4" />
+                <img src={moon} alt="Moon" />
               </div>
             </div>
           </div>
