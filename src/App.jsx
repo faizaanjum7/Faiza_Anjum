@@ -11,6 +11,7 @@ import './App.css';
 import mailWithStar from './assets/mail-with-star.png';
 import faiza from './assets/me.jpg';
 
+
 const ToggleBlock = ({ title, children, defaultOpen = false }) => {
   const [isOpen, setIsOpen] = useState(defaultOpen);
   return (
