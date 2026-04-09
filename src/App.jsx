@@ -19,6 +19,7 @@ import sky3 from './assets/sky3.webp';
 import sky4 from './assets/sky4.webp';
 import moon from './assets/moon.webp';
 import resumePdf from './assets/Faiza_Anjum.pdf';
+import codeIcon from './assets/code.png';
 
 
 const ToggleBlock = ({ title, children, defaultOpen = false }) => {
@@ -274,7 +275,10 @@ function App() {
           ref={(el) => (sectionRefs.current['skills'] = el)}
           className="page-section skills-section"
         >
-          <h1>Skills</h1>
+          <h1>
+            Skills
+            <img src={codeIcon} className="heading-icon" alt="" aria-hidden="true" />
+          </h1>
           <p>Technical skills and expertise.</p>
 
           <div className="skills-grid">
