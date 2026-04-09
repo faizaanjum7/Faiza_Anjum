@@ -1,10 +1,11 @@
 import { useState, useEffect, useRef } from 'react';
 import Sidebar from './components/Sidebar';
-import { ArrowDown, ChevronRight, X, Mail, Linkedin, Github, GraduationCap, Briefcase, Award } from 'lucide-react';
+import { ArrowDown, ChevronRight, X, Mail, Linkedin, Github, GraduationCap, Briefcase, Award, Calendar, FileText, ArrowRight } from 'lucide-react';
 import doodleStars from './assets/doodle-stars.png';
 import shining from './assets/shining.png';
 import star2 from './assets/star (2).png';
 import { projectsData } from './data/projects';
+import { blogData } from './data/blogs';
 import emailjs from '@emailjs/browser';
 import './App.css';
 
@@ -46,12 +47,21 @@ function App() {
   const [activeFilter, setActiveFilter] = useState('All');
   const [selectedProject, setSelectedProject] = useState(null);
   const [isMessageSent, setIsMessageSent] = useState(false);
+  const [activeBlogFilter, setActiveBlogFilter] = useState('All');
+  const [selectedBlog, setSelectedBlog] = useState(null);
 
   const sectionRefs = useRef({});
 
   const filteredProjects = projectsData.filter(project => {
     if (activeFilter === 'All') return true;
     return project.tags.some(tag => tag.toLowerCase() === activeFilter.toLowerCase());
+  });
+
+  const filteredBlogs = blogData.filter(blog => {
+    if (activeBlogFilter === 'All') return true;
+    if (activeBlogFilter === 'Articles') return blog.type === 'Article';
+    if (activeBlogFilter === 'Case Studies') return blog.type === 'Case Study';
+    return true;
   });
 
   useEffect(() => {
@@ -314,10 +324,56 @@ function App() {
         <section
           id="blog"
           ref={(el) => (sectionRefs.current['blog'] = el)}
-          className="page-section"
+          className="page-section blog-section"
         >
-          <h1>Blog / Notes Section</h1>
-          <p>Thoughts, articles, and documentation.</p>
+          <h1>Blog / Case Studies</h1>
+          <p>Thoughts, learnings, and design case studies.</p>
+
+          <div className="filter-container">
+            {['All', 'Articles', 'Case Studies'].map(filter => (
+              <button
+                key={filter}
+                className={`filter-btn ${activeBlogFilter === filter ? 'active' : ''}`}
+                onClick={() => setActiveBlogFilter(filter)}
+              >
+                {filter}
+              </button>
+            ))}
+          </div>
+
+          <div className="blog-grid">
+            {filteredBlogs.map(blog => (
+              <div key={blog.id} className="blog-card" onClick={() => setSelectedBlog(blog)}>
+                <div className="blog-card-type">
+                  <FileText size={14} />
+                  <span>{blog.type.toUpperCase()}</span>
+                </div>
+                <h3 className="blog-card-title">{blog.title}</h3>
+                <p className="blog-card-desc">{blog.description}</p>
+                
+                <div className="blog-card-meta">
+                  <div className="blog-card-meta-item">
+                    <Calendar size={14} />
+                    <span>{blog.date}</span>
+                  </div>
+                  <div className="blog-card-meta-item">
+                    <FileText size={14} /> 
+                    <span>{blog.type}</span>
+                  </div>
+                </div>
+
+                <div className="blog-tags">
+                  {blog.tags.map((tag, i) => (
+                    <span key={i} className="blog-tag">{tag}</span>
+                  ))}
+                </div>
+
+                <div className="blog-read-more">
+                  Read case study <ArrowRight size={14} style={{marginLeft: '4px'}} />
+                </div>
+              </div>
+            ))}
+          </div>
         </section>
 
         <section
@@ -532,6 +588,77 @@ function App() {
           </div>
         </div>
       )}
+      {/* blog details modal */}
+      {selectedBlog && (
+        <div className="modal-overlay" onClick={() => setSelectedBlog(null)}>
+          <div className="modal-content blog-modal-container" onClick={(e) => e.stopPropagation()}>
+            <div className="blog-modal-header-top">
+              <span className="blog-modal-header-type">
+                <FileText size={14} />
+                {selectedBlog.type.toUpperCase()}
+              </span>
+              <button className="modal-close" onClick={() => setSelectedBlog(null)}>
+                <X size={16} />
+              </button>
+            </div>
+            
+            <div className="blog-modal-body">
+              <h2 className="blog-modal-title">{selectedBlog.title}</h2>
+              <div className="blog-modal-meta">
+                <div className="blog-modal-meta-item">
+                  <Calendar size={14} />
+                  <span>{selectedBlog.modalDetails?.dateRange || selectedBlog.date}</span>
+                </div>
+                {selectedBlog.modalDetails?.role && (
+                  <div className="blog-modal-meta-item">
+                    <span>Role: {selectedBlog.modalDetails.role}</span>
+                  </div>
+                )}
+                {selectedBlog.modalDetails?.duration && (
+                  <div className="blog-modal-meta-item">
+                    <span>Duration: {selectedBlog.modalDetails.duration}</span>
+                  </div>
+                )}
+              </div>
+
+              <div className="blog-modal-content-scroll">
+                {selectedBlog.modalDetails?.intro && (
+                  <p className="blog-modal-intro" style={{ whiteSpace: 'pre-line' }}>{selectedBlog.modalDetails.intro}</p>
+                )}
+
+                {selectedBlog.modalDetails?.tools && selectedBlog.modalDetails.tools.length > 0 && (
+                  <div className="blog-modal-tools">
+                    <h4 className="blog-section-title">TOOLS USED</h4>
+                    <div className="blog-tools-tags">
+                      {selectedBlog.modalDetails.tools.map((tool, i) => (
+                        <span key={i} className="blog-tool-tag">{tool}</span>
+                      ))}
+                    </div>
+                  </div>
+                )}
+
+                {selectedBlog.modalDetails?.sections?.map((section, idx) => (
+                  <div key={idx} className="blog-modal-section">
+                    <h4 className="blog-section-title">{section.title}</h4>
+                    <div className="blog-section-content" style={{ whiteSpace: 'pre-line' }}>
+                      {section.content}
+                    </div>
+                  </div>
+                ))}
+                
+                <div className="blog-modal-footer-tags">
+                   <div className="blog-tools-tags">
+                      {selectedBlog.tags.map((tag, i) => (
+                        <span key={i} className="blog-tool-tag">{tag}</span>
+                      ))}
+                    </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      )}
+
       {/* message sent popup */}
       {isMessageSent && (
         <div className="message-toast">
