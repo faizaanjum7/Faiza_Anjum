@@ -11,11 +11,34 @@ import skylarlight from '../assets/skylar_light.webp';
 import skylardark from '../assets/skylar_dark.webp';
 import jobapp from '../assets/jobapplication.webp';
 import resume from '../assets/resume.webp';
+import portfoliolight from '../assets/portfolio_light.webp';
+import portfoliodark from '../assets/portfolio_dark.webp';
 
 
 export const projectsData = [
   {
     id: 1,
+    title: "Portfolio",
+    description: "A notion-inspired portfolio built using React, focused on clean structure, readability, and showcasing projects and case studies effectively.",
+    tags: ["React", "Frontend"],
+    color: "#e6eaf5",
+    imageLight: portfoliolight,
+    imageDark: portfoliodark,
+    githubLink: "https://github.com/faizaanjum7/Faiza_Anjum",
+    liveLink: "https://faiza-anjum.vercel.app/",
+    details: {
+      description: "",
+      whatIDid: [
+        "Designed and developed the entire portfolio independently",
+        "Structured multiple sections including projects, skills, blog, and contact",
+        "Implemented smooth navigation and section-based layout",
+        "Integrated email functionality for contact form"
+      ],
+      keyFeatures: ["Notion-inspired clean and structured UI", "Project gallery with interactive cards", "Blog and case study section", "Responsive design across devices"]
+    }
+  },
+  {
+    id: 2,
     title: "Personal Portfolio",
     description: "Personal portfolio built using React, focusing on interactive UI, animation-driven design, and enhanced user experience.",
     tags: ["React", "Frontend"],
@@ -39,7 +62,7 @@ export const projectsData = [
     }
   },
   {
-    id: 2,
+    id: 3,
     title: "Smart Hospital Management System",
     description: "Full-stack hospital management system designed to manage patients, appointments, and hospital workflows.",
     tags: ["React", "Node.js", "Firebase", "Team Lead"],
@@ -66,7 +89,7 @@ export const projectsData = [
     }
   },
   {
-    id: 3,
+    id: 4,
     title: "Next-Gen LMS",
     description: "Learning management system designed for structured learning, personalized content delivery, and real-world usability.",
     tags: ["React", "Next.js", "AI", "Figma"],
@@ -93,7 +116,7 @@ export const projectsData = [
     }
   },
   {
-    id: 4,
+    id: 5,
     title: "TEDxGPREC 2025 Official Website",
     description: "Official event website developed to showcase speakers, theme, and event flow with a focus on responsive and engaging design.",
     tags: ["HTML", "CSS", "JS"],
@@ -117,7 +140,7 @@ export const projectsData = [
     }
   },
   {
-    id: 5,
+    id: 6,
     title: "Pomodoro Productivity App",
     description: "Productivity application combining a customizable pomodoro timer with task management for structured work sessions.",
     tags: ["React", "LocalStorage"],
@@ -142,7 +165,7 @@ export const projectsData = [
     }
   },
   {
-    id: 6,
+    id: 7,
     title: "Skylar Productivity App",
     description: "AI-assisted productivity application designed to generate structured or flexible daily workflows based on user input.",
     tags: ["React", "TypeScript", "AI"],
@@ -164,25 +187,6 @@ export const projectsData = [
         "Customizable task categories and tabs",
         "Ability to add and manage multiple tasks dynamically"
       ]
-    }
-  },
-  {
-    id: 7,
-    title: "Portfolio (In Progress)",
-    description: "Minimal portfolio inspired by Notion, focused on structured content and professional presentation.",
-    tags: ["React", "CSS"],
-    color: "#e6eaf5",
-    imageLight: null,
-    imageDark: null,
-    githubLink: "https://github.com/faizaanjum7/Faiza_Anjum",
-    liveLink: "#",
-    details: {
-      description: "",
-      whatIDid: [
-        "Designing structured layout for content clarity",
-        "Developing clean and minimal UI"
-      ],
-      keyFeatures: []
     }
   },
   {

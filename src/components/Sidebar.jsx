@@ -22,7 +22,7 @@ const Sidebar = ({ isDarkMode, toggleDarkMode, activeSection }) => {
     { name: 'About', icon: <User size={18} />, id: 'about' },
     { name: 'Projects', icon: <FolderKanban size={18} />, id: 'projects' },
     { name: 'Skills', icon: <Code size={18} />, id: 'skills' },
-    { name: 'Blog / Notes', icon: <BookOpen size={18} />, id: 'blog' },
+    { name: 'Blog / Case Studies', icon: <BookOpen size={18} />, id: 'blog' },
     { name: 'Resume', icon: <FileText size={18} />, id: 'resume' },
     { name: 'Contact', icon: <Mail size={18} />, id: 'contact' },
   ];

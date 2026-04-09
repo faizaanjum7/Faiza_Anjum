@@ -81,11 +81,32 @@ function App() {
       }
     );
 
+    const fadeObserver = new IntersectionObserver(
+      (entries) => {
+        entries.forEach((entry) => {
+          if (entry.isIntersecting) {
+            entry.target.classList.add('is-visible');
+            fadeObserver.unobserve(entry.target);
+          }
+        });
+      },
+      {
+        root: null,
+        rootMargin: '0px 0px -10% 0px', // triggers when element is a bit above bottom
+      }
+    );
+
     Object.values(sectionRefs.current).forEach((section) => {
-      if (section) observer.observe(section);
+      if (section) {
+        observer.observe(section);
+        fadeObserver.observe(section);
+      }
     });
 
-    return () => observer.disconnect();
+    return () => {
+      observer.disconnect();
+      fadeObserver.disconnect();
+    };
   }, []);
 
   useEffect(() => {
@@ -498,7 +519,7 @@ function App() {
                 <img
                   src={isDarkMode ? (selectedProject.imageDark || selectedProject.imageLight) : (selectedProject.imageLight || selectedProject.imageDark)}
                   alt={selectedProject.title}
-                  style={{ width: '100%', height: '100%', objectFit: 'cover' }}
+                  style={{ width: '100%', height: '100%', objectFit: 'contain' }}
                 />
               )}
             </div>
