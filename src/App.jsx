@@ -519,7 +519,7 @@ function App() {
                 <img
                   src={isDarkMode ? (selectedProject.imageDark || selectedProject.imageLight) : (selectedProject.imageLight || selectedProject.imageDark)}
                   alt={selectedProject.title}
-                  style={{ width: '100%', height: '100%', objectFit: 'contain' }}
+                  style={{ width: '100%', height: '100%', objectFit: 'cover', objectPosition: 'top' }}
                 />
               )}
             </div>
