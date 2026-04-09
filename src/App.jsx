@@ -272,10 +272,39 @@ function App() {
         <section
           id="skills"
           ref={(el) => (sectionRefs.current['skills'] = el)}
-          className="page-section"
+          className="page-section skills-section"
         >
-          <h1>Skills Section</h1>
+          <h1>Skills</h1>
           <p>Technical skills and expertise.</p>
+
+          <div className="skills-grid">
+            <div className="skills-card">
+              <h3>Programming</h3>
+              <div className="skills-tags">
+                <span className="skill-tag">Java</span>
+                <span className="skill-tag">SQL</span>
+              </div>
+            </div>
+
+            <div className="skills-card">
+              <h3>Frontend</h3>
+              <div className="skills-tags">
+                <span className="skill-tag">HTML</span>
+                <span className="skill-tag">CSS</span>
+                <span className="skill-tag">JavaScript</span>
+                <span className="skill-tag">React JS</span>
+              </div>
+            </div>
+
+            <div className="skills-card">
+              <h3>Tools</h3>
+              <div className="skills-tags">
+                <span className="skill-tag">Git</span>
+                <span className="skill-tag">Figma</span>
+                <span className="skill-tag">VS Code</span>
+              </div>
+            </div>
+          </div>
         </section>
 
         <section
@@ -307,7 +336,7 @@ function App() {
             <div className="resume-item">
               <div className="resume-date">2022 - 2026</div>
               <div className="resume-content">
-                <h3>BTech in Computer Science</h3>
+                <h3>B.Tech in Computer Science</h3>
                 <p>G. Pulla Reddy Engineering College(Autonomous)</p>
                 <p className="resume-score">84%</p>
               </div>
