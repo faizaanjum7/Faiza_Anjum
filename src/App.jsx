@@ -469,7 +469,7 @@ function App() {
             <div className="resume-item" style={{ display: 'block', padding: '0', marginLeft: '0', marginRight: '0' }}>
               <ToggleBlock title="Smart Interview - Smart Coder">
                 <div className="certificate-content" style={{ display: 'flex', flexDirection: 'column', gap: '12px' }}>
-                  <p>Smart Coder Certification details.</p>
+                  <p> 1-year intensive training in Data Structures, Algorithms and Problem-Solving</p>
                   <a href="https://smartinterviews.in/certificate/10b80e4d" target="_blank" rel="noopener noreferrer" className="btn-secondary" style={{ width: 'fit-content' }}>View Certificate</a>
                 </div>
               </ToggleBlock>
