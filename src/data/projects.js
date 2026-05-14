@@ -97,7 +97,7 @@ export const projectsData = [
     imageLight: lmslight,
     imageDark: lmsdark,
     githubLink: "https://github.com/faizaanjum7/Next-Gen-LMS",
-    liveLink: "https://lms-app-latest.vercel.app/",
+    liveLink: "https://nextgen-lms-app-latest.vercel.app/",
     details: {
       description: "",
       whatIDid: [
